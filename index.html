@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Michael C. Clark — Pitches that close the round</title>
+<meta name="description" content="Founder readiness advisor and pitch coach. $500M+ raised by clients. Atlanta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!--
+  CAST  · Seed 61 · Territory: cinematic red/ink (fixed by the reference screenshot)
+        · Spine: the reference's 14-section argument, kept in order
+        · Scroll: vertical classic · Motion: REVEAL-MASK (curtains, masked lines, irises)
+        · Invented sections: "The 206" (founder-interview ledger) and "The three-minute room" (process set on a pitch clock)
+        · Signature: the wordmark CLARK at 22vw, the portrait rising up through the letters on load
+
+  REFERENCE MAP (section → where its structure came from)
+    01 Hero                 → reference screenshot, wordmark + portrait + mono caption
+    02 Results that last    → reference stat cards (4 offset cards)
+    03 Our raises           → reference "Our projects" offset image grid
+    04 Services (accordion) → reference dark indexed list
+    05 A pitch that speaks  → reference 4-col + wide image + marquee strip
+    06 Process              → reference numbered steps; re-shaped as a pitch clock (invented)
+    07 Trusted by           → reference "Creative partners" card trio
+    08 Real rooms real words→ reference dark testimonial cards
+    09 Plans                → reference red pricing card + toggle
+    10 Team                 → reference dark team portraits
+    11 Before you start     → reference FAQ accordion
+    12 Latest               → reference 3-up blog grid
+    13 Start / footer       → reference red closing form
+-->
+<style>
+  :root{
+    --paper:#F3F1EC; --paper-2:#EBE8E1; --card:#FAF9F6;
+    --ink:#121214; --ink-2:#1B1B1E; --ink-3:#242428;
+    --red:#D9381E; --red-deep:#B52C15;
+    --line:rgba(18,18,20,.14); --line-dark:rgba(243,241,236,.14);
+    --ease:cubic-bezier(.76,0,.24,1); --ease-out:cubic-bezier(.16,1,.3,1);
+    --w:min(92vw,1280px);
+    --pad:clamp(4.5rem,10vw,9rem);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Archivo",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.45;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  em,i,cite,address,dfn,var{font-style:normal}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  ::selection{background:var(--red);color:var(--paper)}
+  :focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+  .wrap{width:var(--w);margin-inline:auto}
+  .mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
+  .kicker{display:inline-flex;align-items:center;gap:.6rem;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;padding:.45rem .7rem;border:1px solid var(--line);border-radius:999px}
+  .kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red)}
+  .dark .kicker{border-color:var(--line-dark)}
+  .h-display{font-weight:800;font-stretch:105%;letter-spacing:-.035em;line-height:.92;text-transform:uppercase;text-wrap:balance}
+  .h-display .dim{color:rgba(18,18,20,.42)}
+  .dark .h-display .dim{color:rgba(243,241,236,.42)}
+  .h2{font-size:clamp(2.6rem,6vw,5.2rem)}
+  .lede{font-size:1.02rem;line-height:1.6;color:rgba(18,18,20,.72);max-width:38ch}
+  .dark .lede{color:rgba(243,241,236,.7)}
+  .num{font-variant-numeric:tabular-nums}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:.75rem;padding:.55rem .55rem .55rem 1.25rem;border-radius:999px;background:var(--ink);color:var(--paper);font-weight:600;font-size:.86rem;letter-spacing:.01em;transition:transform .2s var(--ease-out),background .2s}
+  .btn img{width:34px;height:34px;border-radius:50%;object-fit:cover}
+  .btn .dot{width:34px;height:34px;border-radius:50%;background:var(--red);display:grid;place-items:center}
+  .btn .dot svg{width:14px;height:14px}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.light{background:var(--paper);color:var(--ink)}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink);padding:.7rem 1.25rem}
+  .dark .btn.ghost{border-color:var(--line-dark);color:var(--paper)}
+  .arrow{display:inline-block;transition:transform .25s var(--ease-out)}
+  a:hover .arrow,button:hover .arrow{transform:translate(3px,-3px)}
+
+  /* reveal-mask primitives */
+  .mask{display:block;overflow:hidden}
+  .mask>span{display:block;transform:translateY(110%);transition:transform .9s var(--ease)}
+  .in .mask>span{transform:none}
+  .curtain{clip-path:inset(0 0 100% 0);transition:clip-path 1.1s var(--ease)}
+  .in .curtain,.curtain.in{clip-path:inset(0 0 0% 0)}
+  .wipe{clip-path:inset(0 100% 0 0);transition:clip-path 1s var(--ease)}
+  .in .wipe,.wipe.in{clip-path:inset(0 0% 0 0)}
+  .fade{opacity:0;transition:opacity .8s var(--ease) .35s}
+  .in .fade{opacity:1}
+  [data-stagger]>*{transition-delay:calc(var(--i,0)*.08s)}
+
+  /* ===== NAV ===== */
+  .nav{position:fixed;inset:0 0 auto 0;z-index:50;padding:1.1rem 0;transition:background .25s,box-shadow .25s}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between}
+  .nav.scrolled{background:rgba(243,241,236,.92);backdrop-filter:blur(6px);box-shadow:0 1px 0 var(--line)}
+  .brand{font-weight:900;font-stretch:110%;letter-spacing:-.04em;font-size:1.15rem;text-transform:uppercase;color:var(--paper)}
+  .nav.scrolled .brand,.nav.scrolled .links a{color:var(--ink)}
+  .links{display:flex;gap:2.4rem}
+  .links a{font-family:"JetBrains Mono",monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(243,241,236,.85)}
+  .nav-cta{width:38px;height:38px;border-radius:50%;background:var(--paper);display:grid;place-items:center}
+  .nav.scrolled .nav-cta{background:var(--ink)}
+  .nav-cta span{width:14px;height:10px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+  .nav.scrolled .nav-cta span{border-color:var(--paper)}
+  @media(max-width:860px){.links{display:none}}
+
+  /* ===== HERO ===== */
+  .hero{position:relative;min-height:100svh;background:var(--red);color:var(--paper);overflow:hidden;isolation:isolate}
+  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.08;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .hero .wrap{position:relative;min-height:100svh;display:grid;grid-template-rows:auto 1fr auto;padding:6.5rem 0 2.5rem}
+  .wordmark{font-weight:900;font-stretch:118%;letter-spacing:-.06em;line-height:.78;font-size:clamp(5.5rem,22vw,22rem);text-transform:uppercase;color:rgba(243,241,236,.22);position:absolute;left:-.04em;top:5.2rem;user-select:none;z-index:0}
+  .portrait{position:absolute;right:4%;top:0;height:min(88vh,860px);width:min(44vw,560px);z-index:1;clip-path:inset(100% 0 0 0);transition:clip-path 1.4s var(--ease) .25s}
+  .in .portrait{clip-path:inset(0 0 0 0)}
+  .portrait img{width:100%;height:100%;object-fit:cover;object-position:top;filter:saturate(.85) contrast(1.05)}
+  .hero-copy{position:relative;z-index:2;align-self:end;max-width:40ch;margin-top:min(44vh,420px)}
+  .hero-copy .mono{opacity:.85;margin-bottom:1rem}
+  .hero-copy p{font-size:1.02rem;line-height:1.55;opacity:.95;max-width:34ch}
+  .hero-foot{position:relative;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-top:2.5rem}
+  .hero-foot .side{text-align:right;line-height:1.5;opacity:.85}
+  .hero-foot .side strong{display:block;font-weight:700;font-size:1.4rem;letter-spacing:-.02em}
+  @media(max-width:860px){
+    .portrait{right:-12%;width:70vw;height:62vh;top:3.5rem}
+    .hero-copy{margin-top:58vh}
+    .hero-foot .side{display:none}
+  }
+
+  /* ===== RESULTS ===== */
+  .results{padding:var(--pad) 0;border-bottom:1px solid var(--line)}
+  .results .head{display:grid;grid-template-columns:1fr 2fr;gap:2rem;align-items:start}
+  .results .head p{grid-column:2;margin-top:1.5rem}
+  .stats{margin-top:4rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;align-items:start}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.3rem 1.3rem 1.1rem;min-height:190px;display:flex;flex-direction:column;justify-content:space-between}
+  .stat:nth-child(2){margin-top:3.2rem}
+  .stat:nth-child(4){margin-top:1.6rem}
+  .stat .big{font-weight:800;font-stretch:108%;letter-spacing:-.04em;font-size:clamp(2.4rem,4.2vw,3.6rem);line-height:1;white-space:nowrap}
+  .stat .big.sm{font-size:clamp(1.9rem,3vw,2.6rem)}
+  .stat .big b{color:var(--red);font-weight:800}
+  .stat .lab{color:rgba(18,18,20,.6);font-size:.82rem;line-height:1.4;margin-top:.6rem}
+  @media(max-width:860px){.results .head{grid-template-columns:1fr}.results .head p{grid-column:1}.stats{grid-template-columns:1fr 1fr}.stat:nth-child(n){margin-top:0}}
+
+  /* ===== THE 206 (invented) ===== */
+  .ledger{padding:3rem 0;border-bottom:1px solid var(--line);background:var(--paper-2)}
+  .ledger .row{display:grid;grid-template-columns:5rem 1fr auto;gap:1.5rem;padding:.9rem 0;border-top:1px solid var(--line);align-items:baseline}
+  .ledger .row:last-child{border-bottom:1px solid var(--line)}
+  .ledger .row .pct{font-weight:800;letter-spacing:-.03em;font-size:1.3rem}
+  .ledger .row .bar{height:3px;background:var(--ink);transform-origin:left;transform:scaleX(0);transition:transform 1s var(--ease)}
+  .in .ledger .row .bar,.ledger.in .row .bar{transform:scaleX(var(--w,0))}
+  .ledger .row .what{display:flex;flex-direction:column;gap:.5rem}
+  .ledger .row .what span{font-size:.95rem}
+  .ledger .row .src{color:rgba(18,18,20,.55);font-size:.78rem}
+  @media(max-width:600px){.ledger .row{grid-template-columns:4rem 1fr}.ledger .row .src{grid-column:2}}
+
+  /* ===== RAISES (projects grid) ===== */
+  .raises{padding:var(--pad) 0}
+  .raises .head{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end}
+  .raises .head .right{display:flex;flex-direction:column;align-items:flex-start;gap:1.4rem}
+  .grid-raises{margin-top:4rem;display:grid;grid-template-columns:repeat(12,1fr);gap:1.4rem;align-items:start}
+  .case{position:relative}
+  .case figure{overflow:hidden;background:var(--paper-2)}
+  .case img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.08);transition:transform 1.2s var(--ease-out),filter .6s}
+  .case:hover img{transform:scale(1.04);filter:grayscale(.2) contrast(1.05)}
+  .case .meta{display:flex;justify-content:space-between;gap:1rem;margin-bottom:.75rem;color:rgba(18,18,20,.6)}
+  .case.c1{grid-column:1/6}.case.c1 figure{aspect-ratio:4/5}
+  .case.c2{grid-column:7/13;margin-top:4rem}.case.c2 figure{aspect-ratio:16/10}
+  .case.c3{grid-column:4/11;margin-top:-1rem}.case.c3 figure{aspect-ratio:16/8}
+  .case.c4{grid-column:1/7}.case.c4 figure{aspect-ratio:1/1}
+  .case.c5{grid-column:9/13;margin-top:5rem}.case.c5 figure{aspect-ratio:4/5}
+  .case .caption{margin-top:.75rem;font-size:.9rem;display:flex;justify-content:space-between;gap:1rem}
+  .case .caption b{font-weight:700}
+  @media(max-width:860px){.raises .head{grid-template-columns:1fr}.case.c1,.case.c2,.case.c3,.case.c4,.case.c5{grid-column:1/13;margin-top:0}}
+
+  /* ===== DARK: SERVICES ===== */
+  .dark{background:var(--ink);color:var(--paper)}
+  .services{padding:var(--pad) 0}
+  .services .head{display:grid;grid-template-columns:1fr 2fr;gap:2rem}
+  .services .head .lede{grid-column:2;margin-top:1.5rem}
+  .acc{margin-top:4rem;border-top:1px solid var(--line-dark)}
+  .acc-item{border-bottom:1px solid var(--line-dark)}
+  .acc-btn{width:100%;display:grid;grid-template-columns:3.5rem 1fr 2.4rem;align-items:center;gap:1.5rem;padding:1.35rem 0;text-align:left}
+  .acc-btn .mono{opacity:.55}
+  .acc-btn .t{font-family:"JetBrains Mono",monospace;font-size:.95rem;letter-spacing:.02em}
+  .acc-btn .plus{width:34px;height:34px;border:1px solid var(--line-dark);border-radius:50%;display:grid;place-items:center;transition:transform .35s var(--ease),background .35s}
+  .acc-btn .plus::before,.acc-btn .plus::after{content:"";position:absolute;width:12px;height:1.5px;background:currentColor}
+  .acc-btn .plus::after{transform:rotate(90deg)}
+  .acc-btn .plus{position:relative}
+  .acc-item.open .plus{transform:rotate(45deg);background:var(--red);border-color:var(--red)}
+  .acc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s var(--ease)}
+  .acc-item.open .acc-panel{grid-template-rows:1fr}
+  .acc-panel>div{overflow:hidden}
+  .acc-panel p{padding:0 0 1.5rem 5rem;max-width:62ch;color:rgba(243,241,236,.72);line-height:1.6}
+  @media(max-width:860px){.services .head{grid-template-columns:1fr}.services .head .lede{grid-column:1}.acc-panel p{padding-left:0}}
+
+  /* ===== DARK: SPEAKS ===== */
+  .speaks{padding:0 0 var(--pad);border-top:1px solid var(--line-dark)}
+  .speaks .head{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;padding-top:var(--pad)}
+  .speaks .head .lede{justify-self:end}
+  .pillars{margin-top:3.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line-dark)}
+  .pillar{padding:1.6rem 1.4rem 1.6rem 0;border-right:1px solid var(--line-dark)}
+  .pillar:last-child{border-right:0}
+  .pillar+.pillar{padding-left:1.4rem}
+  .pillar .mono{opacity:.5}
+  .pillar h4{margin:1rem 0 .5rem;font-weight:700;font-size:1rem;letter-spacing:-.01em}
+  .pillar p{font-size:.86rem;line-height:1.55;color:rgba(243,241,236,.65)}
+  .stage{margin-top:3rem;position:relative;height:clamp(300px,46vw,560px);overflow:hidden;border-radius:4px}
+  .stage img{width:100%;height:120%;object-fit:cover;filter:grayscale(1) contrast(1.1) brightness(.7);will-change:transform}
+  .marquee{position:absolute;left:0;right:0;bottom:22%;overflow:hidden;white-space:nowrap;padding:.9rem 0;background:rgba(18,18,20,.9)}
+  .marquee .track{display:inline-flex;gap:3rem;font-weight:800;font-stretch:112%;letter-spacing:-.03em;font-size:clamp(2rem,5.5vw,4.8rem);text-transform:uppercase;animation:run 28s linear infinite}
+  .marquee .track span{display:inline-flex;align-items:center;gap:3rem}
+  .marquee .track span::after{content:"";width:.5em;height:.5em;border-radius:50%;background:var(--red)}
+  .marquee:hover .track{animation-play-state:paused}
+  @keyframes run{to{transform:translateX(-50%)}}
+  .stage .cta{position:absolute;left:50%;bottom:6%;transform:translateX(-50%)}
+  @media(max-width:860px){.speaks .head{grid-template-columns:1fr}.speaks .head .lede{justify-self:start}.pillars{grid-template-columns:1fr 1fr}.pillar{border-right:0;border-bottom:1px solid var(--line-dark);padding-left:0}.pillar+.pillar{padding-left:0}}
+
+  /* ===== PROCESS as pitch clock (invented shaping) ===== */
+  .process{padding:var(--pad) 0;border-bottom:1px solid var(--line)}
+  .process .cols{display:grid;grid-template-columns:5fr 7fr;gap:3rem}
+  .process .left{position:sticky;top:7rem;align-self:start}
+  .process .left .btn{margin-top:2rem}
+  .clock{margin-top:2.5rem;display:flex;align-items:center;gap:1rem;color:rgba(18,18,20,.6)}
+  .clock .face{width:64px;height:64px;border-radius:50%;border:1px solid var(--line);position:relative}
+  .clock .face::after{content:"";position:absolute;left:50%;top:50%;width:1.5px;height:26px;background:var(--red);transform-origin:top;transform:translate(-50%,0) rotate(var(--hand,0deg));transition:transform 1.6s var(--ease)}
+  .steps{display:flex;flex-direction:column;gap:.9rem}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.3rem 1.4rem;display:grid;grid-template-columns:4rem 1fr auto;gap:1rem;align-items:start}
+  .step:nth-child(even){margin-left:2.4rem}
+  .step .mono{opacity:.55}
+  .step h4{font-weight:700;font-size:1.05rem;letter-spacing:-.01em;margin-bottom:.4rem}
+  .step p{font-size:.88rem;line-height:1.55;color:rgba(18,18,20,.68);max-width:48ch}
+  .step .t{font-family:"JetBrains Mono",monospace;font-size:.75rem;color:var(--red);white-space:nowrap}
+  @media(max-width:860px){.process .cols{grid-template-columns:1fr}.process .left{position:static}.step:nth-child(even){margin-left:0}.step{grid-template-columns:3rem 1fr}.step .t{grid-column:2}}
+
+  /* ===== TRUST ===== */
+  .trust{padding:var(--pad) 0}
+  .trust .head{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end}
+  .trust .head .lede{justify-self:end}
+  .tcards{margin-top:3.5rem;display:grid;grid-template-columns:5fr 4fr 3fr;gap:1.3rem;align-items:stretch}
+  .tcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+  .tcard figure{aspect-ratio:4/3;overflow:hidden}
+  .tcard img{width:100%;height:100%;object-fit:cover;filter:grayscale(1)}
+  .tcard .body{padding:1.2rem 1.3rem}
+  .tcard .body h4{font-weight:700;letter-spacing:-.01em;margin-bottom:.35rem}
+  .tcard .body p{font-size:.86rem;color:rgba(18,18,20,.65);line-height:1.5}
+  .logos{margin-top:1.3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem}
+  .logo{border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.2rem;background:var(--card);font-weight:800;font-stretch:112%;letter-spacing:-.03em;text-transform:uppercase;font-size:1.05rem;color:rgba(18,18,20,.55);display:flex;justify-content:space-between;align-items:center}
+  .logo .mono{opacity:.5;letter-spacing:.04em}
+  .rating{grid-column:1/-1;display:flex;align-items:center;gap:1rem;padding:1rem 1.3rem;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+  .rating .av{display:flex}
+  .rating .av img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid var(--card);margin-left:-10px;filter:grayscale(1)}
+  .rating .av img:first-child{margin-left:0}
+  .rating b{font-weight:800;letter-spacing:-.02em;font-size:1.3rem}
+  .rating .sub{color:rgba(18,18,20,.6);font-size:.82rem}
+  @media(max-width:860px){.trust .head{grid-template-columns:1fr}.trust .head .lede{justify-self:start}.tcards{grid-template-columns:1fr}.logos{grid-template-columns:1fr 1fr}}
+
+  /* ===== DARK: WORDS ===== */
+  .words{padding:var(--pad) 0}
+  .words .cols{display:grid;grid-template-columns:5fr 7fr;gap:3rem}
+  .words .left{position:sticky;top:7rem;align-self:start}
+  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+  .q{background:var(--ink-2);border:1px solid var(--line-dark);border-radius:16px;padding:1.5rem;display:flex;flex-direction:column;gap:1.4rem;min-height:260px}
+  .q:nth-child(2){margin-top:3rem}
+  .q:nth-child(3){background:var(--red);border-color:var(--red)}
+  .q .mark{font-weight:900;font-size:2.4rem;line-height:.6;opacity:.6}
+  .q p{font-size:.98rem;line-height:1.55;flex:1}
+  .q .who{display:flex;align-items:center;gap:.8rem;font-size:.85rem}
+  .q .who img{width:36px;height:36px;border-radius:50%;object-fit:cover;filter:grayscale(1)}
+  .q .who span{display:block;opacity:.6;font-size:.76rem}
+  @media(max-width:860px){.words .cols{grid-template-columns:1fr}.words .left{position:static}.quotes{grid-template-columns:1fr}.q:nth-child(2){margin-top:0}}
+
+  /* ===== PLANS ===== */
+  .plans{padding:var(--pad) 0;border-bottom:1px solid var(--line)}
+  .plans .head{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end}
+  .plans .head .right{display:flex;flex-direction:column;align-items:flex-start;gap:1.2rem}
+  .toggle{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--card)}
+  .toggle button{padding:.5rem 1.1rem;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;transition:background .2s,color .2s}
+  .toggle button.on{background:var(--ink);color:var(--paper)}
+  .plan{margin-top:3.5rem;display:grid;grid-template-columns:5fr 7fr;gap:1.3rem;align-items:stretch}
+  .price{background:var(--red);color:var(--paper);border-radius:18px;padding:1.6rem;display:flex;flex-direction:column;justify-content:space-between;min-height:360px;position:relative;overflow:hidden}
+  .price::after{content:"";position:absolute;inset:0;opacity:.07;mix-blend-mode:multiply;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .price .amt{font-weight:900;font-stretch:110%;letter-spacing:-.05em;font-size:clamp(3.4rem,7vw,5.6rem);line-height:.9}
+  .price .amt small{font-size:.5em;font-weight:700;letter-spacing:-.02em;vertical-align:top;margin-left:.1em}
+  .price .per{opacity:.85;margin-top:.5rem;font-size:.9rem}
+  .price .btn{align-self:flex-start;margin-top:2rem}
+  .includes{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.6rem;display:flex;flex-direction:column}
+  .includes h4{font-family:"JetBrains Mono",monospace;font-size:.8rem;letter-spacing:.04em;margin-bottom:1.2rem}
+  .includes ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.9rem 1.5rem;flex:1}
+  .includes li{font-size:.9rem;line-height:1.45;padding-left:1.3rem;position:relative}
+  .includes li::before{content:"→";position:absolute;left:0;color:var(--red)}
+  .includes .foot{margin-top:1.6rem;display:flex;justify-content:space-between;gap:1rem;color:rgba(18,18,20,.6);font-size:.8rem;border-top:1px solid var(--line);padding-top:1rem}
+  @media(max-width:860px){.plans .head{grid-template-columns:1fr}.plan{grid-template-columns:1fr}.includes ul{grid-template-columns:1fr}}
+
+  /* ===== DARK: TEAM ===== */
+  .team{padding:var(--pad) 0}
+  .team .cols{display:grid;grid-template-columns:6fr 6fr;gap:3rem}
+  .team .left .lede{margin-top:1.5rem}
+  .team .left .btn{margin-top:2.2rem}
+  .faces{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;align-items:start}
+  .face{overflow:hidden;border-radius:4px}
+  .face figure{aspect-ratio:3/4;overflow:hidden;background:var(--ink-3)}
+  .face img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:transform 1.2s var(--ease-out)}
+  .face:hover img{transform:scale(1.04)}
+  .face:nth-child(2){margin-top:3rem}
+  .face:nth-child(3){margin-top:-1rem}
+  .face .cap{display:flex;justify-content:space-between;gap:1rem;margin-top:.7rem;font-size:.85rem}
+  .face .cap span{opacity:.55}
+  @media(max-width:860px){.team .cols{grid-template-columns:1fr}.face:nth-child(2),.face:nth-child(3){margin-top:0}}
+
+  /* ===== FAQ ===== */
+  .faq{padding:var(--pad) 0;border-bottom:1px solid var(--line)}
+  .faq .cols{display:grid;grid-template-columns:5fr 7fr;gap:3rem}
+  .faq .left{position:sticky;top:7rem;align-self:start}
+  .faq .acc{margin-top:0;border-top:0;display:flex;flex-direction:column;gap:.7rem}
+  .faq .acc-item{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:0 1.2rem}
+  .faq .acc-btn{grid-template-columns:1fr 2.4rem;padding:1.1rem 0}
+  .faq .acc-btn .t{font-family:"JetBrains Mono",monospace;font-size:.86rem}
+  .faq .plus{border-color:var(--line)}
+  .faq .acc-panel p{padding:0 0 1.2rem;color:rgba(18,18,20,.7);font-size:.92rem}
+  @media(max-width:860px){.faq .cols{grid-template-columns:1fr}.faq .left{position:static}}
+
+  /* ===== LATEST ===== */
+  .latest{padding:var(--pad) 0}
+  .latest .head{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end}
+  .latest .head .right{display:flex;flex-direction:column;align-items:flex-start;gap:1.2rem}
+  .posts{margin-top:3.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .post figure{aspect-ratio:4/3;overflow:hidden;border-radius:4px;background:var(--paper-2)}
+  .post img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.08);transition:transform 1.2s var(--ease-out)}
+  .post:hover img{transform:scale(1.04)}
+  .post .meta{display:flex;justify-content:space-between;margin:.9rem 0 .5rem;color:rgba(18,18,20,.55)}
+  .post h4{font-weight:700;font-size:1.05rem;letter-spacing:-.015em;line-height:1.3;text-wrap:balance}
+  @media(max-width:860px){.latest .head{grid-template-columns:1fr}.posts{grid-template-columns:1fr}}
+
+  /* ===== START / FOOTER ===== */
+  .start{background:var(--red);color:var(--paper);padding:var(--pad) 0 2rem;position:relative;overflow:hidden}
+  .start::after{content:"";position:absolute;inset:0;opacity:.08;mix-blend-mode:multiply;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .start .cols{display:grid;grid-template-columns:6fr 6fr;gap:3rem;position:relative;z-index:1}
+  .start .kicker{border-color:rgba(243,241,236,.35)}
+  .start .kicker::before{background:var(--paper)}
+  .start .lede{color:rgba(243,241,236,.85);margin-top:1.6rem}
+  .start .contact{margin-top:2.5rem;display:grid;gap:.4rem;font-size:.95rem}
+  .start .contact a{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+  .form{display:grid;gap:1.1rem;align-self:end}
+  .form label{display:grid;gap:.45rem;font-family:"JetBrains Mono",monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+  .form input,.form select,.form textarea{appearance:none;width:100%;height:46px;background:transparent;border:0;border-bottom:1px solid rgba(243,241,236,.45);color:var(--paper);font:inherit;font-size:.95rem;padding:.4rem 0;border-radius:0}
+  .form textarea{height:auto;min-height:80px;resize:vertical}
+  .form input::placeholder,.form textarea::placeholder{color:rgba(243,241,236,.5)}
+  .form input:focus,.form select:focus,.form textarea:focus{outline:0;border-bottom-color:var(--paper)}
+  .form .sel{position:relative}
+  .form .sel::after{content:"";position:absolute;right:4px;bottom:18px;width:8px;height:8px;border-right:1.5px solid var(--paper);border-bottom:1.5px solid var(--paper);transform:rotate(45deg);pointer-events:none}
+  .form select option{color:var(--ink)}
+  .form .row2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+  .form .btn{justify-self:start;margin-top:.6rem}
+  .form .fine{font-size:.76rem;opacity:.75}
+  .foot{margin-top:var(--pad);position:relative;z-index:1}
+  .foot .big{font-weight:900;font-stretch:120%;letter-spacing:-.06em;line-height:.8;font-size:clamp(4rem,15vw,15rem);text-transform:uppercase;color:rgba(243,241,236,.25)}
+  .foot .cols4{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(243,241,236,.3);font-size:.9rem}
+  .foot .cols4 .mono{opacity:.7;margin-bottom:.6rem}
+  .foot .cols4 a{display:block;margin:.2rem 0}
+  .colophon{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:1px solid rgba(243,241,236,.3);font-family:"JetBrains Mono",monospace;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+  @media(max-width:860px){.start .cols{grid-template-columns:1fr}.foot .cols4{grid-template-columns:1fr 1fr}.form .row2{grid-template-columns:1fr}}
+
+  /* preloader */
+  .pre{position:fixed;inset:0;z-index:100;background:var(--ink);color:var(--paper);display:grid;place-items:center;transition:clip-path 1s var(--ease)}
+  .pre.lift{clip-path:inset(0 0 100% 0)}
+  .pre .mono{opacity:.6;position:absolute;bottom:2rem;left:2rem}
+  .pre .wm{font-weight:900;font-stretch:118%;letter-spacing:-.05em;font-size:clamp(3rem,12vw,10rem);text-transform:uppercase;overflow:hidden}
+  .pre .wm span{display:block;transform:translateY(110%);animation:rise .9s var(--ease) .1s forwards}
+  @keyframes rise{to{transform:none}}
+
+  @media(prefers-reduced-motion:reduce){
+    .mask>span,.curtain,.wipe,.fade,.portrait,.ledger .row .bar,.clock .face::after{transition:none!important;transform:none!important;clip-path:none!important;opacity:1!important}
+    .marquee .track{animation:none}
+    .pre{display:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<div class="pre" id="pre"><div class="wm"><span>Clark</span></div><div class="mono">Atlanta · Founder readiness</div></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="brand">Clark</a>
+    <nav class="links">
+      <a href="#about">About</a><a href="#raises">Raises</a><a href="#services">Services</a><a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta" aria-label="Menu"><span></span></a>
+  </div>
+</header>
+
+<!-- 01 HERO -->
+<section class="hero" id="top">
+  <div class="wrap reveal">
+    <div class="wordmark" aria-hidden="true">Clark</div>
+    <div class="portrait">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80&auto=format&fit=crop" alt="Michael C. Clark, founder readiness advisor" width="900" height="1200" loading="eager">
+    </div>
+    <div class="hero-copy">
+      <div class="mono mask"><span>Michael C. Clark — Founder &amp; CEO, Personality Pitching</span></div>
+      <p class="mask"><span>Founders don't lose rounds on the numbers. They lose them in the first ninety seconds of the room. I fix the ninety seconds. Pre-seed to Series A, investor pitch and founder readiness, from Atlanta.</span></p>
+    </div>
+    <div class="hero-foot">
+      <a class="btn light fade" href="#contact">Book a strategy call <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=70&auto=format&fit=crop" alt=""></a>
+      <div class="side mono fade">
+        <strong class="num">$500M+</strong>
+        raised by clients<br>Atlanta, GA · 33.74° N
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 RESULTS -->
+<section class="results" id="about">
+  <div class="wrap reveal">
+    <div class="head">
+      <span class="kicker fade">Founder readiness</span>
+      <h2 class="h-display h2">
+        <span class="mask"><span>Pitches that work.</span></span>
+        <span class="mask"><span class="dim">Rounds that close.</span></span>
+      </h2>
+      <p class="lede fade">I don't polish slides. I train you to lead the room, tell the story investors repeat to their partners, and make the ask without flinching. Clients don't just sound better. They get taken seriously, and they get funded.</p>
+    </div>
+    <div class="stats" data-stagger>
+      <div class="stat curtain" style="--i:0"><div class="mono">Capital raised</div><div><div class="big num">$500<b>M+</b></div><div class="lab">Unlocked for clients worldwide, pre-seed through growth</div></div></div>
+      <div class="stat curtain" style="--i:1"><div class="mono">Founders</div><div><div class="big num">206</div><div class="lab">Startup founders interviewed in the last 90 days</div></div></div>
+      <div class="stat curtain" style="--i:2"><div class="mono">Raise range</div><div><div class="big sm num">$100K–$20<b>M</b></div><div class="lab">The rounds I coach, from first cheque to Series B</div></div></div>
+      <div class="stat curtain" style="--i:3"><div class="mono">Rated</div><div><div class="big num">4.9<b>/5</b></div><div class="lab">Trust score across 900+ client reviews</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02b THE 206 — invented ledger section -->
+<section class="ledger reveal">
+  <div class="wrap">
+    <div class="results head" style="padding:0;border:0;display:grid;grid-template-columns:1fr 2fr;gap:2rem;margin-bottom:2rem">
+      <span class="kicker fade">The 206</span>
+      <p class="lede fade">I spoke with 206 founders over ninety days. Here is what worried them, in their words, before we started working.</p>
+    </div>
+    <div class="row"><span class="pct num">71%</span><div class="what"><span>"I can explain the product, I can't explain the business."</span><div class="bar" style="--w:.71"></div></div><span class="src mono">Pre-seed · B2B SaaS</span></div>
+    <div class="row"><span class="pct num">58%</span><div class="what"><span>"Investors nod, then go quiet. I don't know what I'm missing."</span><div class="bar" style="--w:.58"></div></div><span class="src mono">Seed · Consumer</span></div>
+    <div class="row"><span class="pct num">44%</span><div class="what"><span>"I freeze on the ask. I never say the number out loud."</span><div class="bar" style="--w:.44"></div></div><span class="src mono">Seed · Fintech</span></div>
+    <div class="row"><span class="pct num">33%</span><div class="what"><span>"Q&amp;A is where the round dies."</span><div class="bar" style="--w:.33"></div></div><span class="src mono">Series A · Health</span></div>
+  </div>
+</section>
+
+<!-- 03 RAISES -->
+<section class="raises" id="raises">
+  <div class="wrap reveal">
+    <div class="head">
+      <h2 class="h-display h2">
+        <span class="mask"><span>Our</span></span>
+        <span class="mask"><span class="dim">raises.</span></span>
+      </h2>
+      <div class="right">
+        <p class="lede fade">A few of the rooms we've prepared for. Every raise below started with a founder who could build but couldn't yet say why anyone should back them.</p>
+        <a class="btn fade" href="https://personalitypitching.com/case-studies/">All case studies <span class="dot"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12 12 2M4 2h8v8"/></svg></span></a>
+      </div>
+    </div>
+    <div class="grid-raises">
+      <article class="case c1 wipe"><div class="meta mono"><span>Seed · $3.2M</span><span>2025</span></div><figure><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1200&q=80&auto=format&fit=crop" alt="Founding team at a table" loading="lazy"></figure><div class="caption"><b>Logistics SaaS, Atlanta</b><span>Narrative + deck + Q&amp;A</span></div></article>
+      <article class="case c2 wipe"><div class="meta mono"><span>Series A · $11M</span><span>2025</span></div><figure><img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1400&q=80&auto=format&fit=crop" alt="Founder on stage" loading="lazy"></figure><div class="caption"><b>Health platform, Austin</b><span>Executive presence</span></div></article>
+      <article class="case c3 wipe"><div class="meta mono"><span>Donor campaign · $5K blueprint</span><span>2024</span></div><figure><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&q=80&auto=format&fit=crop" alt="Team working around a whiteboard" loading="lazy"></figure><div class="caption"><b>Nonprofit, Georgia</b><span>Donor strategy + messaging</span></div></article>
+      <article class="case c4 wipe"><div class="meta mono"><span>Pre-seed · $750K</span><span>2024</span></div><figure><img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1200&q=80&auto=format&fit=crop" alt="Pitch rehearsal" loading="lazy"></figure><div class="caption"><b>Consumer app, Miami</b><span>Pitch rehearsal</span></div></article>
+      <article class="case c5 wipe"><div class="meta mono"><span>Keynote · 1,200 seats</span><span>2024</span></div><figure><img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=1000&q=80&auto=format&fit=crop" alt="Conference audience" loading="lazy"></figure><div class="caption"><b>Founder summit</b><span>Keynote</span></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- 04 SERVICES -->
+<section class="dark services" id="services">
+  <div class="wrap reveal">
+    <div class="head">
+      <span class="kicker fade">What I do</span>
+      <h2 class="h-display h2">
+        <span class="mask"><span>Coaching</span></span>
+        <span class="mask"><span>that moves</span></span>
+        <span class="mask"><span class="dim">decision-makers.</span></span>
+      </h2>
+      <p class="lede fade">Six engagements. Each one ends in a room: an investor meeting, a board, a donor, a stage. Open any line.</p>
+    </div>
+    <div class="acc" id="acc-services">
+      <div class="acc-item open"><button class="acc-btn" aria-expanded="true"><span class="mono">01</span><span class="t">Investor pitch &amp; funding strategy for startups</span><span class="plus"></span></button><div class="acc-panel"><div><p>The narrative, the deck and the delivery, rehearsed until the ask is the easiest sentence in the room. For pre-seed to Series B founders raising $100K to $20M.</p></div></div></div>
+      <div class="acc-item"><button class="acc-btn" aria-expanded="false"><span class="mono">02</span><span class="t">Executive presence &amp; strategic communication</span><span class="plus"></span></button><div class="acc-panel"><div><p>High-stakes storytelling for leaders who already have the strategy and need the boardroom to follow it.</p></div></div></div>
+      <div class="acc-item"><button class="acc-btn" aria-expanded="false"><span class="mono">03</span><span class="t">Sales confidence &amp; growth for entrepreneurs</span><span class="plus"></span></button><div class="acc-panel"><div><p>Clarify the offer, charge what it's worth, close without the apology. One client's sales moved inside a week.</p></div></div></div>
+      <div class="acc-item"><button class="acc-btn" aria-expanded="false"><span class="mono">04</span><span class="t">Donor strategy &amp; messaging for nonprofits</span><span class="plus"></span></button><div class="acc-panel"><div><p>Inspire major donors, energise the board, and build a story that produces transformational gifts rather than polite ones.</p></div></div></div>
+      <div class="acc-item"><button class="acc-btn" aria-expanded="false"><span class="mono">05</span><span class="t">Leadership acceleration &amp; board coaching</span><span class="plus"></span></button><div class="acc-panel"><div><p>Turn a board into confident advocates and fundraisers for the organisation, not just an audience for the CEO.</p></div></div></div>
+      <div class="acc-item"><button class="acc-btn" aria-expanded="false"><span class="mono">06</span><span class="t">Brand &amp; narrative strategy</span><span class="plus"></span></button><div class="acc-panel"><div><p>Define the core story once and reuse it everywhere: investors, media, keynotes, hiring.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 SPEAKS -->
+<section class="dark speaks">
+  <div class="wrap reveal">
+    <div class="head">
+      <h2 class="h-display h2">
+        <span class="mask"><span>A pitch that speaks</span></span>
+        <span class="mask"><span class="dim">for your company.</span></span>
+      </h2>
+      <p class="lede fade">Most outcomes come from a handful of conversations. The rest of the effort is noise: over-explaining, over-preparing, chasing the wrong signal. We spend your time on the handful.</p>
+    </div>
+    <div class="pillars" data-stagger>
+      <div class="pillar fade" style="--i:0"><span class="mono">01 · Signal</span><h4>Say the business, not the product</h4><p>Investors fund a path to a return. We rebuild the story around that path and let the product serve it.</p></div>
+      <div class="pillar fade" style="--i:1"><span class="mono">02 · Presence</span><h4>Lead the room</h4><p>Pace, pause, posture, and the silence after the number. Trained, not improvised.</p></div>
+      <div class="pillar fade" style="--i:2"><span class="mono">03 · Objections</span><h4>Rehearse the hard questions</h4><p>We run the Q&amp;A until the toughest partner in the room is just another Tuesday.</p></div>
+      <div class="pillar fade" style="--i:3"><span class="mono">04 · The ask</span><h4>Name the number</h4><p>Specific amount, specific use, specific timeline. Hesitation reads as doubt; we remove it.</p></div>
+    </div>
+    <div class="stage curtain">
+      <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1800&q=80&auto=format&fit=crop" alt="Speaker addressing a dark auditorium" loading="lazy" data-parallax>
+      <div class="marquee" aria-hidden="true"><div class="track"><span>Attract</span><span>Connect</span><span>Close</span><span>Attract</span><span>Connect</span><span>Close</span></div></div>
+      <a class="btn light cta" href="#contact">Book a strategy call <span class="dot"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12 12 2M4 2h8v8"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 06 PROCESS — the three-minute room -->
+<section class="process" id="process">
+  <div class="wrap reveal">
+    <div class="cols">
+      <div class="left">
+        <span class="kicker fade">The three-minute room</span>
+        <h2 class="h-display h2" style="margin-top:1.4rem">
+          <span class="mask"><span>From first</span></span>
+          <span class="mask"><span>draft to</span></span>
+          <span class="mask"><span class="dim">the yes.</span></span>
+        </h2>
+        <p class="lede fade" style="margin-top:1.5rem">Every engagement is built on a pitch clock. Three minutes is what you get before a partner decides whether to keep listening. We work backwards from it.</p>
+        <div class="clock fade"><div class="face" id="clock"></div><div class="mono">00:00 → 03:00<br>What happens, when</div></div>
+        <a class="btn fade" href="#contact">Work with me <span class="dot"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12 12 2M4 2h8v8"/></svg></span></a>
+      </div>
+      <div class="steps" data-stagger>
+        <div class="step curtain" style="--i:0"><span class="mono">01</span><div><h4>Diagnose</h4><p>A 30-minute call. You pitch, I listen, and I tell you where the room goes quiet. Most founders hear it in the first five minutes.</p></div><span class="t">00:00</span></div>
+        <div class="step curtain" style="--i:1"><span class="mono">02</span><div><h4>Narrative</h4><p>We write the story investors retell to their partners: the problem, the wedge, the return. One page before any slide.</p></div><span class="t">00:20</span></div>
+        <div class="step curtain" style="--i:2"><span class="mono">03</span><div><h4>Deck</h4><p>Ten to twelve slides that follow the story instead of fighting it. Design included, but the words come first.</p></div><span class="t">01:10</span></div>
+        <div class="step curtain" style="--i:3"><span class="mono">04</span><div><h4>Rehearsal</h4><p>Delivery, objections, the silence after the ask. We run it until it's boring to you and compelling to them.</p></div><span class="t">02:15</span></div>
+        <div class="step curtain" style="--i:4"><span class="mono">05</span><div><h4>The room</h4><p>You walk in knowing exactly what the next three minutes look like. I'm on call for the debrief and the follow-up note.</p></div><span class="t">03:00</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 TRUST -->
+<section class="trust">
+  <div class="wrap reveal">
+    <div class="head">
+      <h2 class="h-display h2">
+        <span class="mask"><span>Rooms</span></span>
+        <span class="mask"><span>that already</span></span>
+        <span class="mask"><span class="dim">trust the work.</span></span>
+      </h2>
+      <p class="lede fade">Fifteen years across media, finance and startups. The frameworks were built in the rooms below before any founder paid for them.</p>
+    </div>
+    <div class="tcards" data-stagger>
+      <div class="tcard curtain" style="--i:0"><figure><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&q=80&auto=format&fit=crop" alt="Workshop in progress" loading="lazy"></figure><div class="body"><h4>Corporate workshops</h4><p>Executive presence and strategic communication programmes for leadership teams at Viacom, Wells Fargo and Morgan Lewis.</p></div></div>
+      <div class="tcard curtain" style="--i:1"><figure><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1000&q=80&auto=format&fit=crop" alt="Founders talking" loading="lazy"></figure><div class="body"><h4>Startup cohorts</h4><p>Pitch readiness sprints for accelerator cohorts and founder communities across the Southeast.</p></div></div>
+      <div class="tcard curtain" style="--i:2"><figure><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1000&q=80&auto=format&fit=crop" alt="Team at laptops" loading="lazy"></figure><div class="body"><h4>Nonprofit boards</h4><p>Donor messaging and board coaching with The Nonprofit Plug and mission-led organisations.</p></div></div>
+    </div>
+    <div class="logos" data-stagger>
+      <div class="logo fade" style="--i:0">Viacom<span class="mono">Media</span></div>
+      <div class="logo fade" style="--i:1">Wells Fargo<span class="mono">Finance</span></div>
+      <div class="logo fade" style="--i:2">Paramount<span class="mono">Media</span></div>
+      <div class="logo fade" style="--i:3">Sony Music<span class="mono">Media</span></div>
+      <div class="logo fade" style="--i:4">MSNBC<span class="mono">News</span></div>
+      <div class="logo fade" style="--i:5">Morgan Lewis<span class="mono">Legal</span></div>
+      <div class="logo fade" style="--i:6">Google<span class="mono">Tech</span></div>
+      <div class="logo fade" style="--i:7">Home Depot<span class="mono">Retail</span></div>
+      <div class="rating fade" style="--i:8">
+        <div class="av"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=70&auto=format&fit=crop" alt=""><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&q=70&auto=format&fit=crop" alt=""><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=120&q=70&auto=format&fit=crop" alt=""></div>
+        <div><b class="num">4.9 / 5</b><div class="sub">Rated by 900+ clients · Google reviews</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 WORDS -->
+<section class="dark words">
+  <div class="wrap reveal">
+    <div class="cols">
+      <div class="left">
+        <span class="kicker fade">Client words</span>
+        <h2 class="h-display h2" style="margin-top:1.4rem">
+          <span class="mask"><span>Real rooms.</span></span>
+          <span class="mask"><span class="dim">Real words.</span></span>
+        </h2>
+      </div>
+      <div class="quotes" data-stagger>
+        <div class="q curtain" style="--i:0"><div class="mark">”</div><p>I now have the confidence to go into the room knowing my pitch will make a difference, and that I'll walk away with everything I need to keep growing the business.</p><div class="who"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=70&auto=format&fit=crop" alt=""><div>Yoki H.<span>Startup founder</span></div></div></div>
+        <div class="q curtain" style="--i:1"><div class="mark">”</div><p>He really knows how to prepare you for the opportunity to pitch to investors. His tips are invaluable for the confidence you need when presenting the idea.</p><div class="who"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&q=70&auto=format&fit=crop" alt=""><div>Damian P.<span>Startup founder</span></div></div></div>
+        <div class="q curtain" style="--i:2"><div class="mark">”</div><p>He identifies the pain points and disrupts unnecessary patterns in a direct, empathetic way. He's helping me with my sales pitch. After one week, my sales improved.</p><div class="who"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=120&q=70&auto=format&fit=crop" alt=""><div>Thalia B.<span>Founder</span></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 PLANS -->
+<section class="plans" id="plans">
+  <div class="wrap reveal">
+    <div class="head">
+      <h2 class="h-display h2">
+        <span class="mask"><span>Our</span></span>
+        <span class="mask"><span class="dim">plans.</span></span>
+      </h2>
+      <div class="right">
+        <p class="lede fade">Choose the sprint that fits the round you're raising. Everything starts with a free 30-minute strategy call; pricing below is a starting point and is confirmed on that call.</p>
+        <div class="toggle fade" id="toggle"><button class="on" data-plan="sprint">Pitch sprint</button><button data-plan="retainer">Raise retainer</button></div>
+      </div>
+    </div>
+    <div class="plan">
+      <div class="price curtain">
+        <div><div class="mono">Founder readiness</div><div class="amt num" id="amt">$2,490<small>*</small></div><div class="per" id="per">Four-week pitch sprint, one founder</div></div>
+        <a class="btn light" href="#contact">Start a sprint <span class="dot"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12 12 2M4 2h8v8"/></svg></span></a>
+      </div>
+      <div class="includes fade">
+        <h4>What's included</h4>
+        <ul id="inc">
+          <li>Diagnostic pitch review on day one</li>
+          <li>Investor narrative, written and signed off</li>
+          <li>10–12 slide deck, designed and built</li>
+          <li>Three live rehearsal sessions</li>
+          <li>Objection and Q&amp;A drill, recorded</li>
+          <li>Follow-up note and email templates</li>
+        </ul>
+        <div class="foot"><span>* Indicative. Confirmed on your strategy call.</span><span class="mono">Delivery · 4 weeks</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 TEAM -->
+<section class="dark team">
+  <div class="wrap reveal">
+    <div class="cols">
+      <div class="left">
+        <span class="kicker fade">The team</span>
+        <h2 class="h-display h2" style="margin-top:1.4rem">
+          <span class="mask"><span>The people</span></span>
+          <span class="mask"><span>behind your</span></span>
+          <span class="mask"><span class="dim">next raise.</span></span>
+        </h2>
+        <p class="lede fade">A small bench in Atlanta. Every engagement is led by Michael and supported by strategists who've sat on the other side of the table.</p>
+        <a class="btn light fade" href="#contact">Meet the team <span class="dot"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12 12 2M4 2h8v8"/></svg></span></a>
+      </div>
+      <div class="faces" data-stagger>
+        <div class="face curtain" style="--i:0"><figure><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=80&auto=format&fit=crop" alt="Michael C. Clark" loading="lazy"></figure><div class="cap"><b>Michael C. Clark</b><span>Founder &amp; CEO</span></div></div>
+        <div class="face curtain" style="--i:1"><figure><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=900&q=80&auto=format&fit=crop" alt="Janice Zapery" loading="lazy"></figure><div class="cap"><b>Janice Zapery</b><span>Strategy</span></div></div>
+        <div class="face curtain" style="--i:2"><figure><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=900&q=80&auto=format&fit=crop" alt="Jasmine Sanchez" loading="lazy"></figure><div class="cap"><b>Jasmine Sanchez</b><span>Client success</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 FAQ -->
+<section class="faq">
+  <div class="wrap reveal">
+    <div class="cols">
+      <div class="left">
+        <span class="kicker fade">Before you start</span>
+        <h2 class="h-display h2" style="margin-top:1.4rem">
+          <span class="mask"><span>Questions</span></span>
+          <span class="mask"><span class="dim">founders ask.</span></span>
+        </h2>
+      </div>
+      <div class="acc" id="acc-faq">
+        <div class="acc-item open"><button class="acc-btn" aria-expanded="true"><span class="t">What stage startups do you work with?</span><span class="plus"></span></button><div class="acc-panel"><div><p>Pre-seed, seed and growth-stage founders raising between $100K and $20M.</p></div></div></div>
+        <div class="acc-item"><button class="acc-btn" aria-expanded="false"><span class="t">Do you help build the entire pitch deck?</span><span class="plus"></span></button><div class="acc-panel"><div><p>Yes. The narrative, the slides and the delivery, in that order.</p></div></div></div>
+        <div class="acc-item"><button class="acc-btn" aria-expanded="false"><span class="t">Can you help prepare for investor Q&amp;A?</span><span class="plus"></span></button><div class="acc-panel"><div><p>We rehearse the tough questions and objections until you're prepared for the worst partner in the room.</p></div></div></div>
+        <div class="acc-item"><button class="acc-btn" aria-expanded="false"><span class="t">Will this help me close high-ticket clients too?</span><span class="plus"></span></button><div class="acc-panel"><div><p>Yes. The same frameworks close larger deals and let you raise your prices without apologising.</p></div></div></div>
+        <div class="acc-item"><button class="acc-btn" aria-expanded="false"><span class="t">What if I'm just starting out?</span><span class="plus"></span></button><div class="acc-panel"><div><p>The programme is tailored to your level, whether you're pre-revenue or scaling to seven figures.</p></div></div></div>
+        <div class="acc-item"><button class="acc-btn" aria-expanded="false"><span class="t">Can you help with public speaking and media?</span><span class="plus"></span></button><div class="acc-panel"><div><p>Narrative strategy includes coaching for media appearances and keynote talks.</p></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 LATEST -->
+<section class="latest">
+  <div class="wrap reveal">
+    <div class="head">
+      <h2 class="h-display h2">
+        <span class="mask"><span>Latest from</span></span>
+        <span class="mask"><span class="dim">the desk.</span></span>
+      </h2>
+      <div class="right">
+        <p class="lede fade">Notes on pitching, selling and leading, written between client rooms.</p>
+        <a class="btn fade" href="https://personalitypitching.com/blog/">All articles <span class="dot"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12 12 2M4 2h8v8"/></svg></span></a>
+      </div>
+    </div>
+    <div class="posts" data-stagger>
+      <a class="post wipe" style="--i:0" href="https://personalitypitching.com/2025/07/15/how-to-inspire-major-donors-and-fund-your-mission-with-confidence/"><figure><img src="https://images.unsplash.com/photo-1560439514-4e9645039924?w=1000&q=80&auto=format&fit=crop" alt="" loading="lazy"></figure><div class="meta mono"><span>Nonprofits</span><span>Jul 2025</span></div><h4>How to inspire major donors and fund your mission with confidence</h4></a>
+      <a class="post wipe" style="--i:1" href="https://personalitypitching.com/2025/07/15/how-to-transform-fear-of-selling-into-your-most-profitable-superpower/"><figure><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=1000&q=80&auto=format&fit=crop" alt="" loading="lazy"></figure><div class="meta mono"><span>Sales</span><span>Jul 2025</span></div><h4>How to turn the fear of selling into your most profitable skill</h4></a>
+      <a class="post wipe" style="--i:2" href="https://personalitypitching.com/2025/07/15/the-hidden-power-of-executive-storytelling-how-to-inspire-your-board-and-move-your-strategy-forward/"><figure><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1000&q=80&auto=format&fit=crop" alt="" loading="lazy"></figure><div class="meta mono"><span>Leadership</span><span>Jul 2025</span></div><h4>The hidden power of executive storytelling in the boardroom</h4></a>
+    </div>
+  </div>
+</section>
+
+<!-- 13 START + FOOTER -->
+<section class="start" id="contact">
+  <div class="wrap reveal">
+    <div class="cols">
+      <div>
+        <span class="kicker fade">Book a strategy call</span>
+        <h2 class="h-display h2" style="margin-top:1.4rem">
+          <span class="mask"><span>Ready for</span></span>
+          <span class="mask"><span>your next</span></span>
+          <span class="mask"><span>raise?</span></span>
+        </h2>
+        <p class="lede fade">Thirty minutes. You pitch, I listen, and you leave knowing the three things that will change how the room responds. No card, no deck required.</p>
+        <div class="contact fade">
+          <a href="tel:+18447875300" class="num">+1 844-787-5300</a>
+          <a href="mailto:michael@personalitypitching.com">michael@personalitypitching.com</a>
+          <span>Atlanta, GA · Mon–Fri, 9am–6pm ET</span>
+        </div>
+      </div>
+      <form class="form fade" action="https://calendly.com/personalitypitching/personality-pitching-30-minute-strategy-call" method="get" onsubmit="return true">
+        <div class="row2">
+          <label>Name<input type="text" name="name" placeholder="Your name" required></label>
+          <label>Company<input type="text" name="company" placeholder="Startup or organisation"></label>
+        </div>
+        <label>Email<input type="email" name="email" placeholder="you@company.com" required></label>
+        <label class="sel">Stage<select name="stage"><option>Pre-seed</option><option>Seed</option><option>Series A</option><option>Growth</option><option>Nonprofit</option><option>Executive</option></select></label>
+        <label>What are you raising, and when?<textarea name="msg" placeholder="e.g. $2M seed, closing by March"></textarea></label>
+        <button class="btn light" type="submit">Book the call <span class="dot"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12 12 2M4 2h8v8"/></svg></span></button>
+        <div class="fine">Replies within one business day. Your pitch stays confidential.</div>
+      </form>
+    </div>
+    <footer class="foot">
+      <div class="big mask"><span>Clark</span></div>
+      <div class="cols4">
+        <div><div class="mono">Navigate</div><a href="#about">About</a><a href="#raises">Raises</a><a href="#services">Services</a><a href="#plans">Plans</a></div>
+        <div><div class="mono">Elsewhere</div><a href="https://www.linkedin.com/in/michaelclark06/">LinkedIn</a><a href="https://x.com/michaelcclark">X</a><a href="https://www.instagram.com/personalitypitching/">Instagram</a></div>
+        <div><div class="mono">Office</div>Atlanta, Georgia<br>33.7490° N, 84.3880° W</div>
+        <div><div class="mono">Local time</div><span id="clock-time" class="num">—</span><br>Consulting hours 9–6 ET</div>
+      </div>
+      <div class="colophon">
+        <span>© 2026 Personality Pitching</span>
+        <span>Set in Archivo &amp; JetBrains Mono</span>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+  </div>
+</section>
+
+<script>
+(function(){
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // preloader
+  const pre=document.getElementById('pre');
+  setTimeout(()=>{pre.classList.add('lift');setTimeout(()=>pre.remove(),1100)},reduce?0:1100);
+
+  // nav state
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('scrolled',scrollY>60);
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // reveal-mask observer
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal,.ledger').forEach(el=>io.observe(el));
+  if(reduce)document.querySelectorAll('.reveal,.ledger').forEach(el=>el.classList.add('in'));
+  // hero reveal after preloader
+  setTimeout(()=>document.querySelector('.hero .reveal').classList.add('in'),reduce?0:900);
+
+  // accordions (one open per group)
+  document.querySelectorAll('.acc').forEach(group=>{
+    group.querySelectorAll('.acc-btn').forEach(btn=>btn.addEventListener('click',()=>{
+      const item=btn.parentElement,open=item.classList.contains('open');
+      group.querySelectorAll('.acc-item').forEach(i=>{i.classList.remove('open');i.querySelector('.acc-btn').setAttribute('aria-expanded','false')});
+      if(!open){item.classList.add('open');btn.setAttribute('aria-expanded','true')}
+    }))
+  });
+
+  // pricing toggle
+  const plans={sprint:{amt:'$2,490',per:'Four-week pitch sprint, one founder',inc:['Diagnostic pitch review on day one','Investor narrative, written and signed off','10–12 slide deck, designed and built','Three live rehearsal sessions','Objection and Q&A drill, recorded','Follow-up note and email templates']},
+               retainer:{amt:'$4,900',per:'Per month, through the close of your round',inc:['Everything in the sprint','Weekly rehearsal through the raise','Investor-by-investor prep notes','Live debrief after every meeting','Term sheet and negotiation coaching','Board-meeting prep once you close']}};
+  document.querySelectorAll('#toggle button').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('#toggle button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+    const p=plans[b.dataset.plan];
+    document.getElementById('amt').innerHTML=p.amt+'<small>*</small>';
+    document.getElementById('per').textContent=p.per;
+    document.getElementById('inc').innerHTML=p.inc.map(i=>'<li>'+i+'</li>').join('');
+  }));
+
+  // pitch clock hand follows the process section
+  const clock=document.getElementById('clock'),steps=[...document.querySelectorAll('.step')];
+  if(clock&&!reduce){
+    const so=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const i=steps.indexOf(e.target);clock.style.setProperty('--hand',(i/(steps.length-1))*360+'deg')}})},{threshold:.6});
+    steps.forEach(s=>so.observe(s));
+  }
+
+  // parallax inside frame (stage image)
+  const par=document.querySelector('[data-parallax]');
+  if(par&&!reduce){
+    let t;const run=()=>{const r=par.parentElement.getBoundingClientRect();const p=(r.top+r.height/2-innerHeight/2)/innerHeight;par.style.transform='translateY('+(p*-10)+'%)';t=null};
+    addEventListener('scroll',()=>{if(!t)t=requestAnimationFrame(run)},{passive:true});run();
+  }
+
+  // Atlanta time
+  const ct=document.getElementById('clock-time');
+  const tick=()=>{ct.textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',hour:'2-digit',minute:'2-digit'}).format(new Date())+' ET'};
+  tick();setInterval(tick,30000);
+})();
+</script>
+</body>
+</html>
